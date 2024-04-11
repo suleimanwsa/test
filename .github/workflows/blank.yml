@@ -1,9 +1,18 @@
-uses: jpoehnelt/secrets-sync-action@v1.9.0
-  with:
-    SECRETS: |
-      ^FOO
-    REPOSITORIES: |
-      suleimanwsa/helm-values
-    DRY_RUN: true
-    GITHUB_TOKEN: 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
-    CONCURRENCY: 10
+name: hello-world
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sync-environment-test
+        uses: jpoehnelt/secrets-sync-action@v1.7.2
+        with:
+          SECRETS: |
+            ^FOO
+          REPOSITORIES: |
+            suleimanwsa/helm-values
+          DRY_RUN: false
+          GITHUB_TOKEN: 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
+          CONCURRENCY: 10
