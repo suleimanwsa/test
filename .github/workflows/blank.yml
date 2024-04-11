@@ -9,6 +9,7 @@ jobs:
       - name: sync-environment-test
         uses: jpoehnelt/secrets-sync-action@v1.9.0
         with:
+          ENVIRONMENT: test
           SECRETS: |
             FOO
           REPOSITORIES: |
