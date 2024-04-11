@@ -13,8 +13,8 @@ jobs:
             FOO
           REPOSITORIES: |
             suleimanwsa/helm-values
-          DRY_RUN: false
           GITHUB_TOKEN: ${{ secrets.READ_GITHUB_REPO_PAT }}
           CONCURRENCY: 10
+          DRY_RUN: false
         env:
           FOO: ${{github.run_id}}
