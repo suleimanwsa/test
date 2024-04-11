@@ -5,12 +5,10 @@ on: workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: test
     steps:
       - name: sync-environment-test
         uses: jpoehnelt/secrets-sync-action@v1.9.0
         with:
-          environment: test
           SECRETS: |
             FOO
           REPOSITORIES: |
