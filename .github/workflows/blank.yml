@@ -12,9 +12,9 @@ jobs:
         with:
           environment: test
           SECRETS: |
-            ^READ_GITHUB_REPO_PAT
+            ^READ_GITHUB_REPO_PAT$
           REPOSITORIES: |
-            ^suleimanwsa/helm-values
+            ^suleimanwsa/helm-values$
           DRY_RUN: false
           GITHUB_TOKEN: ${{ secrets.READ_GITHUB_REPO_PAT }}
           CONCURRENCY: 10
