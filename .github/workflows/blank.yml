@@ -12,11 +12,11 @@ jobs:
         with:
           environment: test
           SECRETS: |
-            ^FOO
+            ^READ_GITHUB_REPO_PAT
           REPOSITORIES: |
             suleimanwsa/helm-values
           DRY_RUN: false
           GITHUB_TOKEN: ${{ secrets.READ_GITHUB_REPO_PAT }}
           CONCURRENCY: 10
         env:
-          READ_GITHUB_REPO_PAT: ${{ secrets.READ_GITHUB_REPO_PAT }}
+          FOO: ${{github.run_id}}
