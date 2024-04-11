@@ -14,5 +14,5 @@ jobs:
           REPOSITORIES: |
             suleimanwsa/helm-values
           DRY_RUN: false
-          GITHUB_TOKEN: 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
+          GITHUB_TOKEN: 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
           CONCURRENCY: 10
