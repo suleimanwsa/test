@@ -1,0 +1,19 @@
+name: Sync Repository Secrets and Variables
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync-repo-secrets-and-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync Secrets and Variables
+        uses: cbrgm/sync-secrets-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          target: 'suleimanwsa/helm-values'
+          secrets: |
+            FOO=${{ secrets.FOO }}
+          variables: |
+            VAR_KEY=varvalue
+            environment=${{ vars.environment }}
