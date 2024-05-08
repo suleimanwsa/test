@@ -9,7 +9,7 @@ jobs:
     - name: Substitute Secrets Action
       uses: faradaytrs/substitute-secrets-action@v2.1.0
       with:
-        input: **/*.properties
         substitutionRegex: \$\{([A-Z0-9_]+)\}
+        input: '**/*.properties'
         substitutionData: ${{ toJSON(secrets) }}
         throwOnDataMissing: true
