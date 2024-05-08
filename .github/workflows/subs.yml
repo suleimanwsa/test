@@ -1,15 +1,19 @@
-name: subs
+name: Replace Placeholders
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  test:
+  replace_placeholders:
     runs-on: ubuntu-latest
     steps:
-    - name: Substitute Secrets Action
-      uses: faradaytrs/substitute-secrets-action@v2.1
-      with:
-        substitutionRegex: \$\{([A-Z0-9_]+)\}
-        input: '**/*.properties'
-        substitutionData: ${{ toJSON(secrets) }}
-        throwOnDataMissing: true
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Replace placeholders in file
+        run: |
+          sed -i "s/${string}/${{ secrets.string }}|g" ./test.properties
+          cat ./test.properties
+
