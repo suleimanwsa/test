@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Substitute Secrets Action
-      uses: faradaytrs/substitute-secrets-action@v2.1.0
+      uses: faradaytrs/substitute-secrets-action@v2.1
       with:
         substitutionRegex: \$\{([A-Z0-9_]+)\}
         input: '**/*.properties'
