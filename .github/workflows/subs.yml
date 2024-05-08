@@ -14,6 +14,6 @@ jobs:
 
       - name: Replace placeholders in file
         run: |
-          sed -i 's/${string}/${{ secrets.string }}/g' ./test.properties
+          sed -i 's/${string}/${{ vars.string }}/g' ./test.properties
           cat ./test.properties
 
