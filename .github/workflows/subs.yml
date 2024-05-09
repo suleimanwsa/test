@@ -21,7 +21,7 @@ jobs:
             echo $value
             var_name=$(echo "$value" | sed 's/\${\([^}]*\)}/\1/')
             echo $var_name
-            value="${!var_name}"
+            value="${{ env.$var_name }}"
             echo $value
 
             sed -i "s/$var_name/$value/g" ./test.properties
