@@ -14,6 +14,15 @@ jobs:
 
       - name: Replace placeholders in file
         run: |
-          sed -i 's/${string}/${{ vars.string }}/g' ./test.properties
+          file=test.properties
+          values=$(grep -oE '\${[^}]*}' "$file")
+
+          for value in $values; do
+            echo $value
+            var_name=$(echo "$value" | sed 's/\${\([^}]*\)}/\1/')
+            echo $var_name
+
+            sed -i "s/$var_name/vars.${var_name}/g" ./test.properties
+          done
           cat ./test.properties
 
