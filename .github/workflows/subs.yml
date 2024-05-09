@@ -21,8 +21,10 @@ jobs:
             echo $value
             var_name=$(echo "$value" | sed 's/\${\([^}]*\)}/\1/')
             echo $var_name
+            value=${{ vars.$var_name }}
+            echo $value
 
-            sed -i "s/$var_name/vars.${var_name}/g" ./test.properties
+            sed -i "s/$var_name/$value/g" ./test.properties
           done
           cat ./test.properties
 
