@@ -11,15 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-          find: "FOO"
-          replace: "{{ vars.FOO }}"
       - name: Sync Secrets and Variables
         run: |
           variablet=$(cat test.properties)
-          echo $variablet
+          echo " testing format function format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')"
           test=$$variablet
           echo $test
            
