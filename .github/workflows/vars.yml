@@ -14,6 +14,7 @@ jobs:
       - name: Sync Secrets and Variables
         run: |
           variablet=$(cat test.properties)
-          test={{ "$variablet" }}
+          echo $variablet
+          test={{ $variablet }}
           echo $test
            
