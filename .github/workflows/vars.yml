@@ -14,7 +14,7 @@ jobs:
       - name: Sync Secrets and Variables
         run: |
           variablet=$(cat test.properties)
-          form=format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
+          form=$(echo "{{format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')}}")
           echo $form
           test=$$variablet
           echo $test
