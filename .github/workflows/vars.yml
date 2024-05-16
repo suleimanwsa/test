@@ -8,12 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync Secrets and Variables
-        uses: cbrgm/sync-secrets-action@v1
-        with:
-          github-token: ${{ secrets.READ_GITHUB_REPO_PAT }}
-          target: 'suleimanwsa/helm-values'
-          secrets: |
-            FOO=${{ secrets.FOO }}
-          variables: |
-            VAR_KEY=varvalue
-            environment=${{ vars.environment }}
+        run: |
+          variablet=$(cat test.properties)
+          test={{ "$variablet" }}
+          echo $test
+           
