@@ -1,30 +1,30 @@
-name: Replace Placeholders
+# name: Replace Placeholders
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  replace_placeholders:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+# jobs:
+#   replace_placeholders:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
-      - name: Replace placeholders in file
-        run: |
-          file=test.properties
-          values=$(grep -oE '\${[^}]*}' "$file")
+#       - name: Replace placeholders in file
+#         run: |
+#           file=test.properties
+#           values=$(grep -oE '\${[^}]*}' "$file")
 
-          for value in $values; do
-            echo $value
-            var_name=$(echo "$value" | sed 's/\${\([^}]*\)}/\1/')
-            echo $var_name
-            value="${{ vars.string }}"
-            echo $value
+#           for value in $values; do
+#             echo $value
+#             var_name=$(echo "$value" | sed 's/\${\([^}]*\)}/\1/')
+#             echo $var_name
+#             value="${{ vars.string }}"
+#             echo $value
 
-            sed -i "s/$var_name/$value/g" ./test.properties
-          done
-          cat ./test.properties
+#             sed -i "s/$var_name/$value/g" ./test.properties
+#           done
+#           cat ./test.properties
 
