@@ -9,6 +9,8 @@ jobs:
   sync-repo-secrets-and-vars:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Sync Secrets and Variables
         run: |
           variablet=$(cat test.properties)
