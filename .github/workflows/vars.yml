@@ -1,7 +1,9 @@
 name: Sync Repository Secrets and Variables
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   sync-repo-secrets-and-vars:
