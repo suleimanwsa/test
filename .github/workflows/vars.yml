@@ -14,6 +14,6 @@ jobs:
       - name: Sync Secrets and Variables
         run: |
           variablet=$(cat test.properties)
-          formatted_env=$(echo "${{ format('Environment: {0}', secrets.FOO) }}")
+          formatted_env=$(echo "${{ format('Environment: {0}', 'test') }}")
           echo $formatted_env
            
