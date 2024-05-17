@@ -21,4 +21,5 @@ jobs:
       - name: Replace placeholders in file
         run: |
           ls -lrt
+          echo ${{ github.repository }}
            
