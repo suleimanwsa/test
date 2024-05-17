@@ -20,4 +20,7 @@ jobs:
           # token: ${{secrets.READ_GITHUB_REPO_PAT}}
           # ref: feature/DDM-588-connectors-gha
           # path: dande-centraldomain
+      - name: Replace placeholders in file
+        run: |
+          ls -lrt
            
