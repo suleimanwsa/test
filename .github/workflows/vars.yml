@@ -11,15 +11,13 @@ jobs:
     steps:
       - name: Check out domain repository
         uses: actions/checkout@v4
-        # with:
-        #   path: domain
+        with:
+          path: .
       - name: Check out central repository
         uses: actions/checkout@v4
         with:
           repository: suleimanwsa/charts
-          # token: ${{secrets.READ_GITHUB_REPO_PAT}}
-          # ref: feature/DDM-588-connectors-gha
-          # path: dande-centraldomain
+          path: .
       - name: Replace placeholders in file
         run: |
           ls -lrt
