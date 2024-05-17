@@ -16,6 +16,6 @@ jobs:
           variablet=$(cat test.properties)
           formatted_env=$(echo "${{ format('Environment: {0}', '$variablet') }}")
           echo $formatted_env
-          formatted_secret=$(echo "${{ vars[format('{0}', 'FOO')] }}")
+          formatted_secret=$(echo "${{ vars[format('{0}', '$variablet')] }}")
           echo $formatted_secret
            
