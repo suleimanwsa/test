@@ -17,6 +17,6 @@ jobs:
           formatted_env=$(echo "${{ format('{0}', '$variablet') }}")
           echo $formatted_env
 
-          formatted_secret={{ vars[$formatted_env] }}
+          formatted_secret=$(echo "${{ vars[$formatted_env] }}")
           echo $formatted_secret
            
