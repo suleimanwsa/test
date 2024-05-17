@@ -14,8 +14,9 @@ jobs:
       - name: Sync Secrets and Variables
         run: |
           variablet=$(cat test.properties)
-          formatted_env=$(echo "${{ format('Environment: {0}', '$variablet') }}")
+          formatted_env=$(echo "${{ format('{0}', '$variablet') }}")
           echo $formatted_env
-          formatted_secret=$(echo "${{ vars[format('{0}', "$variablet")] }}")
+
+          formatted_secret={{ vars[$formatted_env] }}
           echo $formatted_secret
            
