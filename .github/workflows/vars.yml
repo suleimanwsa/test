@@ -9,14 +9,15 @@ jobs:
   sync-repo-secrets-and-vars:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Sync Secrets and Variables
-        run: |
-          variablet=$(cat test.properties)
-          formatted_env=$(echo "${{ format('{0}', '$variablet') }}")
-          echo $formatted_env
-
-          formatted_secret=$(echo "${{ vars[$formatted_env] }}")
-          echo $formatted_secret
+      - name: Check out domain repository
+        uses: actions/checkout@v4
+        # with:
+        #   path: domain
+      - name: Check out central repository
+        uses: actions/checkout@v4
+        with:
+          repository: suleimanwsa/charts
+          # token: ${{secrets.READ_GITHUB_REPO_PAT}}
+          # ref: feature/DDM-588-connectors-gha
+          # path: dande-centraldomain
            
