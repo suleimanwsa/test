@@ -1,0 +1,24 @@
+name: Get Changed Files
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  get-changed-files:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install GitHub CLI
+      run: sudo apt-get install gh -y
+
+    - name: Fetch PR changed files
+      env:
+        GITHUB_TOKEN: ${{ secrets.READ_GITHUB_REPO_PAT }}
+      run: |
+        PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+        gh pr diff $PR_NUMBER --name-only > changed_files.txt
+        cat changed_files.txt
