@@ -22,3 +22,8 @@ jobs:
         PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
         gh pr diff $PR_NUMBER --name-only > changed_files.txt
         cat changed_files.txt
+        PR_NUMBER=${{ github.event.pull_request.number }}
+        echo $PR_NUMBER
+
+
+        
