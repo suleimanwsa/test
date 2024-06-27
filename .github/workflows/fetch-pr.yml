@@ -23,7 +23,7 @@ jobs:
         gh pr diff $PR_NUMBER --name-only > changed_files.txt
         cat changed_files.txt
         PR_NUMBER=${{ github.event.pull_request.number }}
-        echo $PR_NUMBER
+        echo "pr number = $PR_NUMBER"
 
 
         
