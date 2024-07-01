@@ -21,5 +21,4 @@ jobs:
       run: |
         PR_NUMBER=${{ github.event.pull_request.number }}
         echo "pr number = $PR_NUMBER"
-        changed_files=$(gh pr view $PR_NUMBER --json files --jq '.files[] | {path: .path, status: .status}')
-        echo $changed_files
+        git diff --name-status origin/main pr-1
