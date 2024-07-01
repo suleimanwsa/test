@@ -22,7 +22,7 @@ jobs:
         PR_NUMBER=${{ github.event.pull_request.number }}
         echo "pr number = $PR_NUMBER"
         git fetch origin pull/1/head:pr-$PR_NUMBER
-        # git fetch origin                                              
+        git fetch origin                                              
         git checkout main
-        # git pull origin main
-        git diff --name-status main pr-$PR_NUMBER
+        git pull origin main
+        git diff --name-status origin/main pr-$PR_NUMBER
