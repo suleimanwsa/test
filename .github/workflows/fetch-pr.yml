@@ -23,6 +23,6 @@ jobs:
         echo "pr number = $PR_NUMBER"
         git fetch origin pull/1/head:pr-$PR_NUMBER
         # git fetch origin                                              
-        # git checkout main
+        git checkout main
         # git pull origin main
         git diff --name-status main pr-$PR_NUMBER
