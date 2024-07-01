@@ -2,7 +2,7 @@ name: Get Changed Files
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
 
 jobs:
   get-changed-files:
@@ -19,9 +19,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.READ_GITHUB_REPO_PAT }}
       run: |
-        PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-        gh pr diff $PR_NUMBER --name-only > changed_files.txt
-        cat changed_files.txt
         PR_NUMBER=${{ github.event.pull_request.number }}
         echo "pr number = $PR_NUMBER"
         git diff --name-status origin/main pr-<PR_NUMBER> | grep '^D' | cut -f2-
