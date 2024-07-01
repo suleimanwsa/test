@@ -21,4 +21,4 @@ jobs:
       run: |
         PR_NUMBER=${{ github.event.pull_request.number }}
         echo "pr number = $PR_NUMBER"
-        git diff --name-status origin/main pr-<PR_NUMBER> | grep '^D' | cut -f2-
+        gh pr diff $PR_NUMBER
